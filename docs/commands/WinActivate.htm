@@ -46,7 +46,11 @@
 <pre><em>; Change HKCU to HKLM to affect all users on this system.</em>
 RegWrite REG_DWORD, HKCU, Software\Microsoft\Terminal Server Client
     , RemoteDesktop_SuppressWhenMinimized, 2</pre>
-
+<p> Alternatively you can retrieve the pid of the program and use it as wintitle to activate window</p>
+<pre>Process, Exist, calc.exe 
+pid := ErrorLevel 
+WinShow % "ahk_pid " pid ; if hidden 
+WinActivate, % "ahk_pid " pid</pre>
 <h2>Related</h2>
 <p><a href="WinActivateBottom.htm">WinActivateBottom</a>, <a href="_WinActivateForce.htm">#WinActivateForce</a>, <a href="SetTitleMatchMode.htm">SetTitleMatchMode</a>, <a href="DetectHiddenWindows.htm">DetectHiddenWindows</a>, <a href="../misc/WinTitle.htm#LastFoundWindow">Last Found Window</a>, <a href="WinExist.htm">IfWinExist</a>, <a href="WinActive.htm">IfWinActive</a>, <a href="WinWaitActive.htm">WinWaitActive</a>, <a href="WinWait.htm">WinWait</a>, <a href="WinWaitClose.htm">WinWaitClose</a>, <a href="WinClose.htm">WinClose</a>, <a href="GroupActivate.htm">GroupActivate</a>, <a href="WinSet.htm">WinSet</a></p>
 <h2>Example</h2>
